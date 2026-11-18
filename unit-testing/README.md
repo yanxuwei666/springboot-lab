@@ -2,6 +2,10 @@
 
 独立的 Spring Boot 项目，用于练习单元测试。
 
+`leavesubmission` 包是请假提交练习：Mapper 返回固定示例数据，不连接数据库，也不保存数据。单元测试可用 Mockito 为 Mapper 指定不同结果。
+
+请假提交接口为 `POST /api/leave/requests/submit`。传入完整表单且不填 `requestId` 时，新建并提交；填写 `requestId` 时提交已有申请。只传 ID 会使用已有草稿内容，传入请假类型时使用完整表单更新草稿内容。模拟 Mapper 为新申请生成 ID，但不会保留申请或审批节点。练习新建场景时，Mockito 需要模拟 `insert` 为申请设置 ID，才能验证首节点使用了该 ID。
+
 - Java 8
 - Spring Boot 2.7.18
 - `spring-boot-starter-test`：包含 JUnit Jupiter、Mockito 和 Spring 测试支持。
