@@ -1,0 +1,1 @@
+用于验证 GitHub 和 Gitee 的推送配置。
